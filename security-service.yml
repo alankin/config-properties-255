@@ -28,6 +28,15 @@ logging:
       hibernate:
         SQL: debug
 
+config:
+  security:
+    oauth:
+      jwt:
+        key: 123456
+      client:
+        id: webAngular
+        secret: 123456
+
 # docker profile
 ---
 spring:
