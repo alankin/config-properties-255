@@ -1,0 +1,41 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+  datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost;databaseName=db_security
+    username: sa
+    password: 1a.2b.3c.
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        format_sql: true
+        ddl-auto: create
+
+  zipkin:
+    base-url: http://localhost:9411
+
+
+server:
+  port: 8010
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+
+# docker profile
+---
+spring:
+  cloud:
+    config:
+      uri: http://config-server:8888
+  profiles: docker
+  datasource:
+    url: jdbc:sqlserver://localhost;databaseName=db_security
+  zipkin:
+    base-url: http://zipkinserver:9411
