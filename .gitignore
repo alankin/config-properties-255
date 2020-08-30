@@ -1,0 +1,7 @@
+.idea
+*.iml
+target/
+**/node_modules/**
+web/template/
+web/dist
+showcase/app/env.constants.js
