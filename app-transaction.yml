@@ -1,0 +1,45 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+  data:
+    mongodb:
+      uri: mongodb://localhost:27018/db_transaction
+
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: invoice-events-listener-group
+
+  zipkin:
+    base-url: http://localhost:9411
+
+
+server:
+  port: 8030
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+
+
+# docker profile
+---
+spring:
+  cloud:
+    config:
+      uri: http://config-server:8888
+  profiles: docker
+  data:
+    mongodb:
+      uri: mongodb://localhost:27018/db_transaction
+  zipkin:
+    base-url: http://zipkinserver:9411
+  kafka:
+    consumer:
+      bootstrap-servers: servicekafka:9092
