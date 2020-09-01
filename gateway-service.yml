@@ -7,6 +7,11 @@ spring:
 
 zuul:
   routes:
+    security:
+      service-id: security-service
+      path: /api/security/**
+      url: http://localhost:8010/
+      sensitive-headers: Cookie,Set-Cookie
     invoice:
       service-id: app-invoice
       path: /api/invoice/**
@@ -19,8 +24,6 @@ zuul:
       service-id: app-transaction
       path: /api/transaction/**
       url: http://localhost:8040/
-    security:
-      sensitive-headers: Cookie,Set-Cookie
 
 server:
   port: 9090
@@ -38,6 +41,8 @@ spring:
 
 zuul:
   routes:
+    security:
+      url: http://security-service:8010/
     invoice:
       url: http://app-invoice:8020/
     pay:
