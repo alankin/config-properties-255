@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: docker
   cloud:
     config:
       uri: http://localhost:8888
@@ -39,15 +37,3 @@ config:
       client:
         id: webAngular
         secret: 123456
-
-# docker profile
----
-spring:
-  cloud:
-    config:
-      uri: http://config-server:8888
-  profiles: docker
-  datasource:
-    url: jdbc:sqlserver://sqlservice;databaseName=db_security
-  zipkin:
-    base-url: http://zipkinserver:9411
