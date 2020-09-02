@@ -45,7 +45,7 @@ spring:
       uri: http://config-server:8888
   profiles: docker
 datasource:
-  url: jdbc:mysql://172.18.0.2:3306/db_pay?serverTimezone=America/Lima&allowPublicKeyRetrieval=true&useSSL=false
+  url: jdbc:mysql://0.0.0.0:3306/db_pay?serverTimezone=America/Lima&allowPublicKeyRetrieval=true&useSSL=false
   zipkin:
     base-url: http://zipkinserver:9411
   kafka:
