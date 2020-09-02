@@ -13,8 +13,8 @@ zuul:
       url: http://localhost:8010/
       sensitive-headers: Cookie,Set-Cookie
     invoice:
-      service-id: app-invoice
-      path: /api/invoice/**
+      service-id: app-invoices
+      path: /api/invoices/**
       url: http://localhost:8020/
     pay:
       service-id: app-pay
