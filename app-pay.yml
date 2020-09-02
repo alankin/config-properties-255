@@ -49,5 +49,9 @@ spring:
   zipkin:
     base-url: http://zipkinserver:9411
   kafka:
-    consumer:
+    producer:
       bootstrap-servers: servicekafka:9092
+    admin:
+      properties:
+        bootstrap:
+          servers: servicekafka:9092
